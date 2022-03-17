@@ -10,9 +10,10 @@ Premisas:
 - La secuencia del ADN esperado es un array de Strings que representan cada fila de una tabla de (NxN)._ 
 - Las letras de los Strings solo pueden ser: (A,T,C,G), las cuales representa cada base nitrogenada del ADN._
 - Un humano es mutante cuando se encuentran más de una secuencia de cuatro letras iguales, de forma oblicua, horizontal o vertical.
+
 ```
 Ejemplo (caso mutante):
-string[] dna = {"ATGCGA","CAGTGC","TTATGT","AGAAGG","CCCCTA","TCACTG"};_
+string[] dna = {"ATGCGA","CAGTGC","TTATGT","AGAAGG","CCCCTA","TCACTG"};
 ```
 
 ## Desafíos 🚀
@@ -22,19 +23,25 @@ Desarrollar un programa (en cualquier lenguaje de programación) que cumpla con 
 
 ### Nivel 2 
 Crear una API REST, hostear esa API en un cloud computing libre (Google App Engine, Amazon AWS, etc), crear el servicio “/mutant/” en donde se pueda detectar si un humano es mutante enviando la secuencia de ADN mediante un HTTP POST con un Json el cual tenga el siguiente formato:
+
 ```
 POST → /mutant/
-{ “dna”:["ATGCGA","CAGTGC","TTATGT","AGAAGG","CCCCTA","TCACTG"] }
+{ 
+  “dna”:["ATGCGA","CAGTGC","TTATGT","AGAAGG","CCCCTA","TCACTG"] 
+}
 ```
+
 En caso de verificar un mutante, debería devolver un HTTP 200-OK, en caso contrario un 403-Forbidden.
 
 ### Nivel 3 
 Anexar una base de datos, la cual guarde los ADN’s verificados con la API.
 Solo 1 registro por ADN.
 Exponer un servicio extra “/stats” que devuelva un Json con las estadísticas de las verificaciones de ADN: 
+
 ```
 {“count_mutant_dna”:40, “count_human_dna”:100: “ratio”:0.4}
 ```
+
 Tener en cuenta que la API puede recibir fluctuaciones agresivas de tráfico (Entre 100 y 1 millón de peticiones por segundo).
 Test-Automáticos, Code coverage > 80%.
 
@@ -50,10 +57,12 @@ Estrategia 1: Validación del request (estructura del ADN)
 
 * Se obtiene la longitud del listado de strings y se recorre cada posición del listado para verificar que los strings contengan la misma cantidad de elementos que el listado y es decir que se trate de una matriz de NxN. 
 * Se usaron expresiones regulares para verificar que los strings solo contengan las letras A,C,T,G.
+
 ```
 Si todo esta OK con la estructura del ADN se continua con la Estrategia 2, 
 de lo contrario el servicio retorna 400-Bad Request.
 ```
+
 Estrategia 2: Validar el ADN para saber si es mutante
 * Se realiza el calculo de las coincidencias de manera horizontal (Estrategia 3), vertical (Estrategia 4) y oblicua (Estrategia 5). 
 * Se retorna booleano y continua con la Estrategia 6.
@@ -72,6 +81,7 @@ _Se continua con la Estrategia 6_
 
 Estrategia 6: Guardar la validacion del ADN en la base de datos
 * Se guarda en base de datos el listado con del ADN verificado en un campo de tipo TEXT y si es Mutante se guarda en un campo VARCHAR con el texto "Mutante" de lo contrario "Humano".
+
 ```
 Si es Mutante el servicio retorna 200-OK,
 de lo contrario el servicio retorna 403-Forbidden.
