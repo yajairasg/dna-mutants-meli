@@ -1,5 +1,4 @@
-# API REST Mutant DNA
-#_Challenge Mercado Libre_
+# Mutant DNA - _Challenge Mercado Libre_
 
 ## Descripción de la prueba 🦸 
 
