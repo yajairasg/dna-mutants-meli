@@ -51,7 +51,8 @@ Estrategia 1: Validación del request (estructura del ADN)
 * Se obtiene la longitud del listado de strings y se recorre cada posición del listado para verificar que los strings contengan la misma cantidad de elementos que el listado y es decir que se trate de una matriz de NxN. 
 * Se usaron expresiones regulares para verificar que los strings solo contengan las letras A,C,T,G.
 ```
-Si todo esta OK con la estructura del ADN se continua con la Estrategia 2, de lo contrario el servicio retorna 400-Bad Request.
+Si todo esta OK con la estructura del ADN se continua con la Estrategia 2, 
+de lo contrario el servicio retorna 400-Bad Request.
 ```
 Estrategia 2: Validar el ADN para saber si es mutante
 * Se realiza el calculo de las coincidencias de manera horizontal (Estrategia 3), vertical (Estrategia 4) y oblicua (Estrategia 5). 
@@ -70,9 +71,10 @@ Estrategia 5: Calcular coincidencias oblicuas en listado del ADN
 _Se continua con la Estrategia 6_
 
 Estrategia 6: Guardar la validacion del ADN en la base de datos
-Se guarda en base de datos el listado con del ADN verificado en un campo de tipo TEXT y si es Mutante se guarda en un campo VARCHAR con el texto "Mutante" de lo contrario "Humano".
+* Se guarda en base de datos el listado con del ADN verificado en un campo de tipo TEXT y si es Mutante se guarda en un campo VARCHAR con el texto "Mutante" de lo contrario "Humano".
 ```
-Si es Mutante el servicio retorna 200-OK de lo contrario el servicio retorna 403-Forbidden.
+Si es Mutante el servicio retorna 200-OK,
+de lo contrario el servicio retorna 403-Forbidden.
 ```
 
 ### Endpoint para consultar las estadísticas de las verificaciones de ADN
