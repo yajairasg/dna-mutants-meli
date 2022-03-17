@@ -77,10 +77,16 @@ Si es Mutante el servicio retorna 200-OK de lo contrario el servicio retorna 403
 
 ### Endpoint para consultar las estadísticas de las verificaciones de ADN
 
-Estrategia 1: Validación del request (estructura del ADN)
+Estrategia 1: Consulta de validaciones del ADN en base de datos (estructura del ADN)
 
-* Se obtiene la longitud del listado de strings y se recorre cada posición del listado para verificar que los strings contengan la misma cantidad de elementos que el listado y es decir que se trate de una matriz de NxN. 
-* Se usaron expresiones regulares para verificar que los strings solo contengan las letras A,C,T,G.
+* Se consulta a la base de datos la cantidad de validaciones del ADN de tipo Mutante
+* Se consulta a la base de datos la cantidad de validaciones del ADN de tipo Humano
+
+Estrategia 2: Calculo de estadísticas
+
+* Se calcula el total de validaciones realizadas del ADN (sumatoria entre la cantidad de validaciones tipo Mutante y Humano)
+* Calculo del ratio (la cantidad de validaciones tipo Mutante dividido entre el total de validaciones)
+
 ```
 El servicio retorna 200-OK con un Json de las estadísticas de las verificaciones de ADN:  
 {
