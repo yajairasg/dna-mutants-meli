@@ -107,6 +107,11 @@ El servicio retorna 200-OK con un Json de las estadísticas de las verificacione
   “ratio”:0.0
 }
 ```
+## Despliegue del API REST
+
+Se realizó el despliegue del api rest en Amazon AWS, se configuró un entorno con Elastic Beanstalk para el despliegue de una aplicativo Java y base de datos MySQL. 
+
+Url del endpoint: Mutantdna-env.eba-njx6jemu.us-east-1.elasticbeanstalk.com
 
 ## Consumo de servicios
 
@@ -118,7 +123,7 @@ Puede descargar el aplicativo en este link: https://www.postman.com/downloads/
 ### Endpoints
 
 Para el consumo de los servicios de la Api Mutantes a traves de Postman:
-1. Realice la importación de la colección
+1. Realice la importación de la colección [LINK_COLECCION_POSTMAN](https://www.getpostman.com/collections/98437c1a0c0a2ce1e959) 
 2. Ingrese a la carpeta ApiMutants
 4. Para realizar el consumo del servicio que realiza la verificación del ADN, seleccione la Petición POST /api/mutant.
 5. Clic en botón Send
