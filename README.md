@@ -136,8 +136,8 @@ Para el consumo de los servicios de la Api Mutantes a traves de Postman:
 * [Spring Initializr](https://start.spring.io/) - Creación del proyecto base
 * [Spring Boot](https://spring.io/projects/spring-boot) - El framework usado
 * [Maven](https://maven.apache.org/) - Manejador de dependencias
-* [MySQL](https://dev.mysql.com/downloads/mysql/) - Entorno de desarrollo
-* [Spring Tools 4](https://spring.io/tools) - Base de datos
+* [MySQL](https://dev.mysql.com/downloads/mysql/) - Base de datos
+* [Spring Tools 4](https://spring.io/tools) - Entorno de desarrollo
 
 ## Autor ✒️
 
@@ -146,5 +146,5 @@ Para el consumo de los servicios de la Api Mutantes a traves de Postman:
 
 ## Agradecimientos
 
-* Gracias a mi familia por regalarme de su tiempo para desarrollar este proyecto 👨‍👩‍👧‍👦
+* Gracias a mi familia 👨‍👩‍👧‍👦 por regalarme de su tiempo para desarrollar este proyecto.
 * Gracias Mercado Libre por darme la oportunidad de participar en el Challenge 🤓.
